@@ -1,28 +1,95 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="site">
+    <div class="site__hero">
+      <Hero />
+    </div>
+
+    <div class="site__columns">
+      <div class="site__content">
+        <Article :article="article" />
+      </div>
+
+      <div class="site__sidebar">
+        <Toc :links="tocLinks" />
+      </div>
+
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import Hero from './components/Hero';
+  import Article from './components/Article';
+  import Toc from './components/Toc';
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  import introduction from './sections/introduction.md';
+  import useBem from './sections/use-bem.md';
+  import oneBlockOneFile from './sections/one-block-one-file.md';
+  import groupByElement from './sections/group-by-element.md';
+  import blockMeansDiv from './sections/block-means-div.md';
+  import dontStyleTheTags from './sections/dont-style-the-tags.md';
+
+  export default {
+    components: {
+      Hero,
+      Article,
+      Toc,
+    },
+    data() {
+      const article = Object.entries({
+        introduction,
+        useBem,
+        oneBlockOneFile,
+        groupByElement,
+        blockMeansDiv,
+        dontStyleTheTags,
+      }).map(([id, section]) => ({
+        ...section,
+        id,
+      }));
+
+      return {
+        article,
+      };
+    },
+    computed: {
+      tocLinks() {
+        return this.article
+          .map((section) => ({
+            id: section.id,
+            text: section.title,
+          }));
+      }
+    }
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+  @import "sass/utilities";
+
+  .site {
+    font-family: $ff-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .site__hero {
+    margin-bottom: r(64);
+  }
+
+  .site__columns {
+    display: flex;
+    max-width: r(1200);
+    margin: 0 auto r(65);
+  }
+
+  .site__sidebar {
+    padding: 0 r(24);
+    width: percentage(1- 1 / $phi);
+  }
+
+  .site__content {
+    padding: 0 r(24);
+    width: percentage(1 / $phi);
+  }
 </style>

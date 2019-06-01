@@ -1,8 +1,15 @@
-import Vue from 'vue'
-import App from './App.vue'
+import 'reset-css';
+import './sass/html-tags.scss';
 
-Vue.config.productionTip = false
+import Vue from 'vue';
+import vueSmoothScroll from 'vue-smooth-scroll'
+
+import App from './App.vue';
+
+Vue.use(vueSmoothScroll);
+
+Vue.config.productionTip = false;
 
 new Vue({
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#app');

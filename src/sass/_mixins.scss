@@ -1,0 +1,15 @@
+@mixin clip-margins($overflow-hidden: true) {
+  $enough: r(10000);
+
+  @if $overflow-hidden {
+    overflow: hidden
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    display: block;
+    margin-top: $enough;
+    margin-bottom: -$enough;
+  }
+}
