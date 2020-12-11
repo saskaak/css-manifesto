@@ -5,7 +5,7 @@
       appear
     >
       <h1 class="hero__logo">
-        <span class="hero__css">Dangers of CSS</span>
+        <span class="hero__css">Simpler CSS</span>
       </h1>
     </transition>
   </div>

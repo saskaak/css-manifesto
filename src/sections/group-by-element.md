@@ -1,4 +1,6 @@
-# Group by element
+---
+title: 3. Group by element
+---
 
 Styles should be grouped by element, not by context or modifier. This is best demonstrated with an example of doing the exact opposite:
 ```scss
@@ -9,7 +11,7 @@ Styles should be grouped by element, not by context or modifier. This is best de
   &--tiny {
     padding: 5px 10px;
 
-    &__image {
+    .person-card__image {
       height: 100px;
     }
   }
@@ -25,7 +27,7 @@ Styles should be grouped by element, not by context or modifier. This is best de
 
   @media (min-width: 768px) {
     &--tiny {
-      &__image {
+      .person-card__image {
         height: 200px;
       }
     }
@@ -44,9 +46,9 @@ Styles should be grouped by element, not by context or modifier. This is best de
   }
 }
 ```
-Looks like pretty efficient use of the `&` parent selector, right? Like, we only had to write the block class `.person-card` once! That's cool and all but then, try to make sense of what is actually written here: How does the image behave in different contexts? What element (element, as in B**E**M) classes are defined, or even simpler, how many of them are there?
+Looks like pretty efficient use of the `&` parent selector, right? Like, we only had to write the block class `.person-card` once! That's cool and all but then, try to make sense of what is actually written here. How does the image behave in different contexts? What _element classes_ are defined, or even simpler, how many of them are there?
 
-The styles for image are defined in four different places all over the file so it's difficult to form even a rough mental model of what styles are applied and when. You might think you got the number of elements right until you notice that there's one element that is only styled above a breakpoint—and then you start second guessing if there are more, hidden somewhere deep in the nested modifier classes. And then you get headache and kind of don't want to do CSS ever again. Compare that to this:
+The styles for image are defined in four different places all over the file so it's difficult to form even a rough mental model of what styles are applied and when. You might think you got the number of elements right until you notice that there's one element that is only styled in the media query—and then you start second guessing if there are more, hidden somewhere deep in the nested modifier classes. And then you get headache and kind of don't want to do CSS ever again. Compare that to this:
 
 ```scss
 .person-card {

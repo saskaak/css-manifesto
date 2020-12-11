@@ -1,8 +1,10 @@
-# One block, one file
+---
+title: 2. One block, one file
+---
 
-Each block (block, as in <b class="article__b">B</b>EM) should be in their own file, named after the block class. These block files should reside in a single flat directory, separate from the other style files (such as a variable definition file etc.).
+Each _block_ should be in their own file, named after the block class. These block files should reside in a single flat directory, separate from the other style files (such as a variable definition file etc.).
 
-It might be tempting to do put several related blocks in a single file, especially if those block consists of very few lines like this:
+It might be tempting to do put several related blocks in a single file, especially if those block consists of only a few lines like this:
 
 ```scss
 // _tags.scss

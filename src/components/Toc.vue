@@ -1,13 +1,12 @@
 <template>
   <div class="toc">
-    <ol class="toc__list">
+    <ol>
       <li
         v-for="link in links"
-        class="toc__item"
         :key="link.text"
       >
         <a
-          class="toc__link"
+          :class="['toc__link', {'toc__link--active': link.active}]"
           :href="`#${link.id}`"
           v-smooth-scroll
         >
@@ -32,27 +31,19 @@
   .toc {
     top: r(24);
     position: sticky;
-    border-left: r(4) solid $color-primary
-  }
-
-  .toc__list {
-    padding-left: r(24);
-  }
-
-  .toc__item {
-    font-size: r(18);
-
-    & + & {
-      margin-top: r(12);
-    }
   }
 
   .toc__link {
+    border-left: r(4) solid $color-light;
+    padding: r(8) r(24) r(8);
+    display: block;
+    font-size: r(18);
     text-decoration: none;
     color: $color-text;
 
-    &:hover {
+    &--active {
       color: $color-primary;
+      border-color: $color-primary;
     }
   }
 </style>

@@ -6,7 +6,10 @@
 
     <div class="site__columns">
       <div class="site__content">
-        <Article :article="article" />
+        <Article
+          :article="article"
+          @visible="active = $event"
+        />
       </div>
 
       <div class="site__sidebar">
@@ -50,6 +53,7 @@
 
       return {
         article,
+        active: null,
       };
     },
     computed: {
@@ -57,10 +61,11 @@
         return this.article
           .map((section) => ({
             id: section.id,
-            text: section.title,
+            text: section.attributes.title,
+            active: section.id === this.active,
           }));
-      }
-    }
+      },
+    },
   }
 </script>
 
@@ -84,12 +89,19 @@
   }
 
   .site__sidebar {
+    display: none;
     padding: 0 r(24);
     width: percentage(1- 1 / $phi);
+
+    @media (min-width: r(768)) {
+      display: block;
+    }
   }
 
   .site__content {
     padding: 0 r(24);
-    width: percentage(1 / $phi);
+    @media (min-width: r(768)) {
+      width: percentage(1 / $phi);
+    }
   }
 </style>

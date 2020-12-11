@@ -1,4 +1,6 @@
-# Block means div
+---
+title: 4. Block means div
+---
 
 Blocks are standalone entities. This means that whatever is happening around a block is not a concern of the block itself—blocks should behave the same regardless of their context. In the this example, a bit of context has gotten into the styles of a block:
 
@@ -14,7 +16,7 @@ Blocks are standalone entities. This means that whatever is happening around a b
   @media (min-width: 768px) {
     min-height: 350px;
     margin-bottom: 50px;
-  }
+  } 
 }
 
 .hero__title {
@@ -29,7 +31,7 @@ Blocks are standalone entities. This means that whatever is happening around a b
 
 It might not be obvious at first, but the culprit is that bottom margin applied to the `.hero`. The problem with those are that when we want to use this hero in a different context we might need different margins too.
 
-Changing the margins later would get ugly. Using negative margins in surrounding blocks means that now your context becomes concerned of the inner workings of the block. Doing that for n different breakpoints is a great way to to kill n brain cells, if you're into that kind of stuff. You could add modifier classes for each context, but that would just be backwards.
+Changing the margins later would get ugly. Using negative margins in surrounding blocks means that now your context becomes concerned of the inner workings of the block. Doing that for n different margins on n different breakpoints most likely leads to errors. You could add modifier classes for each context, but that would just be backwards.
 
 A better way to handle spacing between different blocks is to apply them to the parent block like this:
 

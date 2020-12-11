@@ -56,8 +56,8 @@
       }
     }
 
-    b {
-      font-weight: bold;
+    em {
+      font-style: italic;
     }
 
     a {
@@ -74,7 +74,7 @@
 
     code {
       font-family: $ff-code;
-      background: #f5f5f5;
+      background: $color-light;
       padding: r(3) r(6);
       margin: 0 r(3);
       border-radius: r(4);
@@ -86,9 +86,10 @@
     pre {
       margin: r(32) 0;
       padding: r(16) r(20);
-      background-color: #f5f5f5;
+      background-color: $color-light;
 
       code {
+        margin: 0;
         padding: 0;
         white-space: pre;
         font-family: $ff-code;
