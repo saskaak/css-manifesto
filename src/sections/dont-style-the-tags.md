@@ -15,7 +15,7 @@ div {
 }
 ```
 
-The fact that such styles are applied to `div` selector is obviously ridiculous. Every time a `div` is placed anywhere, the first thing you'd have to do would be to override these styles with something actually useful. And each time you'd have to do these overrides for both the base style and the focus style. Working on this kind of a codebase would be absolutely infuriating. Now that we've established that, think about this:
+The fact that such styles are applied to `div` selector is obviously ridiculous. Every time a `div` is placed anywhere, the first thing you'd have to do would be to override these styles with something actually useful. And each time you'd have to do these overrides for both the base style and the hover style. Working on this kind of a codebase would be absolutely infuriating. Now that we've established that, think about this:
 
 ```scss
 button {
